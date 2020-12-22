@@ -1,0 +1,21 @@
+FROM golang:1.15.3-alpine
+# Use this for extracting zips to reduce the need for additional images
+ENV CGO_ENABLED=0
+ENV GOARCH=amd64
+ENV GOOS=linux
+
+WORKDIR /src
+
+RUN apk --no-cache add git p7zip
+
+RUN mkdir -p ${GOPATH}/src/github.com/depp/ && \
+    git clone https://github.com/depp/spicy.git ${GOPATH}/src/github.com/depp/spicy
+
+RUN cd ${GOPATH}/src/github.com/depp/spicy && \
+    go mod init cmd/spicy && \
+    go get -d cmd/spicy && \
+    go build -o /src/spicy ./cmd/spicy/main.go && \
+	rm -rf ${GOPATH}/src/*
+
+COPY res/n64* /src/
+RUN mkdir n64sdk && 7z x ./n64sdk.7z -o./n64sdk && rm ./n64sdk.7z

@@ -6,6 +6,17 @@ This project aims to create a central hub of tool chains and CICD tooling for th
 
 Toolchains:
 
+- [x] N64
+- [ ] 68K (Sega MD / Amiga)
+- [ ] NES
+- [ ] SNES
+- [ ] Gameboy DMG
+- [ ] Gameboy Advance
+- [ ] PSX
+- [ ] Dreamcast
+
+CICD:=
+
 - [ ] N64
 - [ ] 68K (Sega MD / Amiga)
 - [ ] NES

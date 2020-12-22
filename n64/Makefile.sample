@@ -1,0 +1,36 @@
+.PHONY: clean
+
+N64MIPS_LIB_DIR := /opt/n64/lib
+N64SDK_INCLUDE_DIR := /opt/n64sdk/include
+N64SDK_LIB_DIR := /opt/n64sdk/lib
+CFLAGS := -mabi=32 -ffreestanding -mfix4300 -G 0 -I${N64SDK_INCLUDE_DIR}
+CFLAGS += -DF3DEX_GBI_2
+ifdef FINAL
+CFLAGS += -O2 -DNDEBUG -D_FINALROM
+N64LIB = ultra_rom
+else
+CFLAGS += -g -DDEBUG
+N64LIB = ultra_d
+endif
+
+DOCKER = docker run -e CFLAGS="${CFLAGS}" -itv ${PWD}:/workdir n64
+CC := ${DOCKER} mips32-elf-gcc
+LD := ${DOCKER} mips32-elf-ld
+SPICY := ${DOCKER} spicy
+
+codefiles = onetri.c dram_stack.c rdp_output.c
+codeobjects = $(codefiles:.c=.o)
+datafiles = static.c cfb.c rsp_cfb.c
+dataobjects = $(datafiles:.c=.o)
+
+all: onetri.n64
+
+codesegment.o: $(codeobjects)
+	$(LD) -nostdlib -r -o $@ $^ ${N64SDK_LIB_DIR}/libg$(N64LIB).a \
+		${N64MIPS_LIB_DIR}/gcc/mips32-elf/10.2.0/libgcc.a
+
+onetri.n64: spec codesegment.o $(dataobjects)
+	${SPICY} -r $@ spec --toolchain-prefix=mips32-elf-
+
+clean:
+	rm -f $(codeobjects) $(dataobjects) codesegment.o
