@@ -3,7 +3,7 @@ BINUTILS_VER := 2.35
 GCC_VER := 10.2.0
 SPICY_VER := 0.5.0
 
-all: download
+all: download build_mips build_spicy build_n64 clean_buildcache
 
 download:
 ifeq (,$(wildcard ./res/binutils-${BINUTILS_VER}.tar.xz))
