@@ -3,6 +3,7 @@
 ## Purpose
 
 This project aims to create a central hub of tool chains and CICD tooling for the building of homebrew for retro hardware. So that developers can drop their code into a set structure and build without worring about the build process.
+Hopefully this will also lower the barrier to new developers by allowing them to to focus on the code and not the setup and configuration.
 
 Toolchains:
 
