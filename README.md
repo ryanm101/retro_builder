@@ -11,7 +11,7 @@ Toolchains:
 - [ ] 68K (Sega MD / Amiga)
 - [ ] NES
 - [ ] SNES
-- [ ] Gameboy DMG
+- [X] Gameboy DMG
 - [ ] Gameboy Advance
 - [ ] PSX
 - [ ] Dreamcast
