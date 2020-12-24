@@ -16,7 +16,7 @@ Hopefully this will also lower the barrier to new developers by allowing them to
 ||SNES/Super Famicom||||
 ||N64|&check;||Issue with Spicy, changing to ld|
 |Sega|Dreamcast||||
-||Mega Drive / Genesis|&check;||Untested|
+||Mega Drive / Genesis|&check;||Used [Gendev](https://github.com/kubilus1/gendev)|
 |Sony|Playstation 1 (PSX)||||
 
 ## Build
