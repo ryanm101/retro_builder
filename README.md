@@ -7,17 +7,17 @@ Hopefully this will also lower the barrier to new developers by allowing them to
 
 ## Status
 
-|Platform|Toolchain|CICD|Notes|
-|-|-|-|-|
-|68K/Z80 VASM|&check;||only mot68k tested, very basic test|
-|Nintendo Gameboy DMG|&check;|||
-|Nintendo Gameboy Advance||||
-|Nintendo Entertainment System (NES/Famicom)||||
-|Super Nintendo Entertainment System (SNES/Super Famicom)||||
-|Nintendo 64 (N64)|&check;||Issue with Spicy, changing to ld|
-|Sega Dreamcast||||
-|Sega Mega Drive / Genesis|&check;||Untested|
-|Sony Playstation (PSX)||||
+|Manufacturer|Platform|Toolchain|CICD|Notes|
+|-|-|-|-|-|
+|-|68K/Z80 VASM|&check;||only mot68k tested, very basic test|
+|Nintendo|Gameboy DMG|&check;|||
+||Gameboy Advance||||
+||NES/Famicom||||
+||SNES/Super Famicom||||
+||N64|&check;||Issue with Spicy, changing to ld|
+|Sega|Dreamcast||||
+||Mega Drive / Genesis|&check;||Untested|
+|Sony|Playstation 1 (PSX)||||
 
 ## Build
 
